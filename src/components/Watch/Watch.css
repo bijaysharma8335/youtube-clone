@@ -1,0 +1,132 @@
+.watch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100vw;
+}
+
+.watch_wrap {
+    display: flex;
+}
+
+.watch_left {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.watch_video {
+    width: 66vw;
+    outline: none;
+}
+
+.watch_leftBtn {
+    margin-top: 10px;
+    border-bottom: 1px solid #292929;
+}
+
+.watch_title {
+    font-weight: 400;
+    line-height: 2.4rem;
+    font-size: 18px;
+}
+
+.watch_videoInfo {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.watch_likeBtnContainer {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.watch_icon {
+    margin-right: 5px;
+    font-size: 28px !important;
+}
+
+.color--gray {
+    color: 909090;
+}
+.watch_likeBtnContainer {
+    margin-right: 15px;
+}
+.watch_likeBtnContainer > p {
+    color: #aaa;
+    font-weight: 500;
+    font-size: 14px;
+}
+.watch_likeDislikes {
+    display: flex;
+    background-color: #606060;
+    height: 2px;
+    overflow: hidden;
+    margin-top: 10px;
+    position: relative;
+}
+.watch_videoInfoRight {
+    display: flex;
+    align-items: baseline;
+}
+.watch_videoRightWrap {
+    display: flex;
+    align-items: baseline;
+}
+.share-icon {
+    transform: rotate(180deg);
+    font-size: 30px !important;
+}
+.watch_likeWrap {
+    display: flex;
+}
+.play_addIcon {
+    font-size: 28px !important;
+}
+.watch_right {
+    max-height: 100%;
+    overflow: hidden;
+}
+.watch_avatar {
+    font-size: 30px !important;
+}
+.watch_details {
+    margin-top: 20px;
+    border-bottom: 1px solid #292929;
+    padding-bottom: 20px;
+}
+.watch_subCount {
+    font-size: 13px;
+}
+.watch_avatarWrap {
+    align-items: center;
+}
+.watch_description {
+    max-width: 600px;
+    margin-left: 50px;
+    margin-top: 15px;
+}
+.watch_description > p {
+    font-size: 14px;
+    word-spacing: 1px;
+    line-height: 22px;
+    max-height: 60px;
+    overflow: hidden;
+}
+.watch_detailsContainer {
+    display: flex;
+    justify-content: space;
+}
+.watch_subBtn {
+    background-color: #cc0000;
+}
+.watch_showMore {
+    color: #aaaaaa;
+    margin-top: 10px;
+    font-weight: 500;
+    cursor: pointer;
+}
