@@ -1,16 +1,37 @@
-import React from "react";
-import { Avatar, Button } from "@material-ui/core";
+import React, { useState } from "react";
+import { Avatar, Badge, Button, makeStyles, Popover } from "@material-ui/core";
 import {
     Apps,
+    CameraAltOutlined,
     Menu,
     Notifications,
+    PersonAddOutlined,
     Search,
     VideoCall,
 } from "@material-ui/icons";
 import logo from "../../Assets/logo.png";
 import "./Header.css";
-
+import { useAppContext } from "./../../context/AppContext";
+import { auth } from "../../lib/firebase";
+import { signOut } from "firebase/auth";
+const useStyles = makeStyles((theme) => ({
+    large: {
+        width: theme.spacing(7),
+        height: theme.spacing(7),
+    },
+}));
 const Header = () => {
+    const classes = useStyles();
+
+    const [anchorE1, setAnchorE1] = useState(null);
+    const open = Boolean(anchorE1);
+    const id = open ? "simple-popover" : undefined;
+
+    const handleClick = (e) => setAnchorE1(e.currentTarget);
+
+    const handleClose = () => setAnchorE1(null);
+    const { currentUser } = useAppContext();
+    console.log(currentUser);
     return (
         <div className="header">
             <div className="header_left">
@@ -31,7 +52,64 @@ const Header = () => {
                 <VideoCall />
                 <Apps />
                 <Notifications />
-                <Avatar />
+                <Avatar onClick={handleClick} />
+                <Popover
+                    open={open}
+                    id={id}
+                    onClose={handleClose}
+                    anchorEl={anchorE1}
+                    anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                    transformOrigin={{ vertical: "top" }}
+                >
+                    <div className="home_popoverContainer">
+                        <div className="home_popover_top">
+                            <Badge
+                                overlap="circle"
+                                anchorOrigin={{
+                                    vertical: "bottom",
+                                    horizontal: "right",
+                                }}
+                                badgeContent={
+                                    <div className="home_badge">
+                                        <CameraAltOutlined className="home_camera" />
+                                    </div>
+                                }
+                            >
+                                <Avatar className={classes.large} />
+                            </Badge>
+                            <div className="home_text">
+                                <div className="home_displayName">
+                                    {/* {currentUser.displayName} */}bijay
+                                </div>
+                                <div className="home_mail">
+                                    sharma
+                                    {/* {currentUser.email} */}
+                                </div>
+                            </div>
+                            <div className="home_btn">
+                                Manage Your Google Account
+                            </div>
+                        </div>
+                        <div className="home_popover_btn">
+                            <div className="home_addBtn">
+                                <PersonAddOutlined className="home_addIcon" />
+                                <p>Add Another Account</p>
+                            </div>
+                            <Button
+                                variant="outlined"
+                                className="home_signOut"
+                                onClick={() => signOut(auth)}
+                            >
+                                SignOut
+                            </Button>
+                            <div className="home_popover_footer">
+                                <p>Privacy Policy</p>
+                                <span>*</span>
+                                <p>Terms of Service</p>
+                            </div>
+                        </div>
+                    </div>
+                </Popover>
             </div>
         </div>
     );

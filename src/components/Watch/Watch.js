@@ -7,10 +7,15 @@ import {
     ThumbUpAlt,
 } from "@material-ui/icons";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import videoURL from "../../Assets/videos/video.mp4";
 import VideoSmall from "../VideoSmall/VideoSmall";
 import "./Watch.css";
 const Watch = () => {
+    const navigate = useNavigate();
+    const handleAvatarRedirect = () => {
+        navigate("/PreviewChannel");
+    };
     return (
         <div className="watch">
             <div className="watch_wrap">
@@ -62,7 +67,10 @@ const Watch = () => {
                     <div className="watch_details">
                         <div className="watch_detailsContainer">
                             <div className="videothumb_details watch-avatarWrap">
-                                <Avatar />
+                                <Avatar
+                                    className="watch_avatar"
+                                    onClick={handleAvatarRedirect}
+                                />
                                 <div className="videothumb_channel">
                                     <h1 className="videothumb_title ">
                                         Prime Video
@@ -101,8 +109,10 @@ const Watch = () => {
                 </div>
                 <div className="watch_right">
                     <VideoSmall />
-                    {/* <VideoSmall />
-                    <VideoSmall /> */}
+                    <VideoSmall />
+                    <VideoSmall />
+                    <VideoSmall />
+                    <VideoSmall />
                 </div>
             </div>
         </div>

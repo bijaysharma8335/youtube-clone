@@ -69,6 +69,15 @@
     margin-top: 10px;
     position: relative;
 }
+.watch_likeDislikes::before {
+    background-color: #818181;
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: translate(-5px);
+}
 .watch_videoInfoRight {
     display: flex;
     align-items: baseline;
@@ -128,5 +137,8 @@
     color: #aaaaaa;
     margin-top: 10px;
     font-weight: 500;
+    cursor: pointer;
+}
+.watch_avatar{
     cursor: pointer;
 }

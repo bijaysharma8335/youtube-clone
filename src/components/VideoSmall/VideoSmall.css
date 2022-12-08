@@ -8,13 +8,13 @@
     cursor: pointer;
 }
 .videoSmall_channelView {
-    margin-top: 50px;
+    margin-top: 80px !important;
 }
 .videoSmall:first-of-type {
     margin-top: 50px !important;
 }
 .videoSmall_channelView:first-of-type {
-    margin-top: 50px !important;
+    margin-top: 80px !important;
 }
 .videoSmall_thumbnail {
     width: inherit;
@@ -40,5 +40,10 @@
 .videoSmall_texts > p {
     font-size: 13px !important;
 }
-
-
+.videoSmall_channelView {
+    flex-direction: column;
+    width: 220px;
+}
+.videoSmall_channelView_img {
+    width: 200px !important;
+}

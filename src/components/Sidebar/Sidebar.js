@@ -10,12 +10,20 @@ import {
     WatchLater,
     Whatshot,
 } from "@material-ui/icons";
-import './Sidebar.css'
+import "./Sidebar.css";
+import { useNavigate } from "react-router-dom";
 const Sidebar = () => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate("/");
+    };
     return (
         <div className="sidebar">
             <div className="sidebar_buttons">
-                <div className="sidebar_btn sidebar_btn--active">
+                <div
+                    className="sidebar_btn sidebar_btn--active"
+                    onClick={handleClick}
+                >
                     <Home className="sidebar_icon" />
                     <p>Home</p>
                 </div>
