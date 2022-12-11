@@ -30,8 +30,9 @@ const Header = () => {
     const handleClick = (e) => setAnchorE1(e.currentTarget);
 
     const handleClose = () => setAnchorE1(null);
-    const { currentUser } = useAppContext();
-    console.log(currentUser);
+    const { currentUser, setShowUploadVideo, showUploadVideo } =
+        useAppContext();
+
     return (
         <div className="header">
             <div className="header_left">
@@ -49,7 +50,7 @@ const Header = () => {
                 </Button>
             </form>
             <div className="header_right">
-                <VideoCall />
+                <VideoCall onClick={() => setShowUploadVideo(true)} />
                 <Apps />
                 <Notifications />
                 <Avatar onClick={handleClick} />
@@ -59,7 +60,7 @@ const Header = () => {
                     onClose={handleClose}
                     anchorEl={anchorE1}
                     anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                    transformOrigin={{ vertical: "top" }}
+                    // transformOrigin={{ vertical: "top" }}
                 >
                     <div className="home_popoverContainer">
                         <div className="home_popover_top">
@@ -79,11 +80,10 @@ const Header = () => {
                             </Badge>
                             <div className="home_text">
                                 <div className="home_displayName">
-                                    {/* {currentUser.displayName} */}bijay
+                                    {currentUser?.displayName}
                                 </div>
                                 <div className="home_mail">
-                                    sharma
-                                    {/* {currentUser.email} */}
+                                    {currentUser?.email}
                                 </div>
                             </div>
                             <div className="home_btn">

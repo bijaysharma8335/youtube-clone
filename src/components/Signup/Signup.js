@@ -6,7 +6,7 @@ import {
     TextField,
 } from "@material-ui/core";
 import { auth } from "../../lib/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import "./Signup.css";
 
 const initialFormData = {
@@ -16,6 +16,7 @@ const initialFormData = {
     password: "",
     confirmPassword: "",
 };
+
 const Signup = ({ setShowSignUp }) => {
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState(initialFormData);
@@ -37,6 +38,9 @@ const Signup = ({ setShowSignUp }) => {
             setShowSignUp(false);
         }, 1500);
     };
+
+
+
     const createAccount = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -56,15 +60,20 @@ const Signup = ({ setShowSignUp }) => {
                 msg: "",
             });
         }
-        createUserWithEmailAndPassword(auth, formData.email, formData.password)
-            .then((userCredential) => {
-                userCredential.user.auth.currentUser.displayName = `${formData.firstName} ${formData.lastName}`;
 
+        //firbase function for signup user
+        await createUserWithEmailAndPassword(
+            auth,
+            formData.email,
+            formData.password
+        )
+            .then((userCredential) => {
+                updateProfile(userCredential.user, {
+                    displayName: `${formData.firstName}${formData.lastName}`,
+                });
                 setLoading(false);
                 setEmailError({ state: false, msg: "" });
                 setPasswordError({ state: false, msg: "" });
-
-                // ...
             })
             .catch((error) => {
                 if (error.code === "auth/email-already-in-use") {

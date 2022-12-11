@@ -1,6 +1,12 @@
 import { onAuthStateChanged } from "firebase/auth";
+import {
+    collection,
+    CollectionReference,
+    getDocs,
+    onSnapshot,
+} from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth } from "../lib/firebase";
+import { auth, db } from "../lib/firebase";
 
 const AppContext = createContext();
 export const useAppContext = () => {
@@ -9,20 +15,53 @@ export const useAppContext = () => {
 export const AppContextProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState({});
     const [appState, setaAppState] = useState("empty");
+    const [videos, setVideos] = useState([]);
+    const [showUploadVideo, setShowUploadVideo] = useState(false);
+
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setaAppState("home");
                 setCurrentUser(user);
-                console.log("user", user);
-
-                // ...
+               
             } else {
                 setCurrentUser(null);
                 setaAppState("login");
             }
         });
     }, []);
-    const value = { appState, currentUser };
+
+    
+    // useEffect(
+    //     () => {
+    //         const querySnapshot = getDocs(collection(db, "videos"));
+    //         querySnapshot.forEach((doc) => {
+    //             setVideos(`${doc.id} => ${doc.data()}`);
+    //         });
+    //     },
+
+    //     //     () =>
+    //     //         onSnapshot(CollectionReference(db, "videos"), (snapshot) =>
+    //     //             setVideos(
+    //     //                 snapshot.docs.map((doc) => ({
+    //     //                     id: doc.id,
+    //     //                     data: doc.data(),
+    //     //                 }))
+    //     //             )
+    //     //         ),
+    //     //     // db.collection("videos").onSnapshot((snapshot) => {
+    //     //     //     setVideos(snapshot.docs.map((doc) => doc.data));
+    //     // });
+    //     []
+    // );
+    console.log(videos);
+    const value = {
+        videos,
+        appState,
+        currentUser,
+        showUploadVideo,
+        setShowUploadVideo,
+    };
+
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

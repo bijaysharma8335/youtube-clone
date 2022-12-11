@@ -51,7 +51,7 @@
 }
 
 .color--gray {
-    color: 909090;
+    color: #909090;
 }
 .watch_likeBtnContainer {
     margin-right: 15px;
@@ -76,7 +76,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    transform: translate(-5px);
+    transform: translateX(-5px);
 }
 .watch_videoInfoRight {
     display: flex;
@@ -128,10 +128,10 @@
 }
 .watch_detailsContainer {
     display: flex;
-    justify-content: space;
+    justify-content: space-between;
 }
 .watch_subBtn {
-    background-color: #cc0000;
+    background-color: #cc0000 !important;
 }
 .watch_showMore {
     color: #aaaaaa;
@@ -139,6 +139,6 @@
     font-weight: 500;
     cursor: pointer;
 }
-.watch_avatar{
+.watch_avatar {
     cursor: pointer;
 }

@@ -4,6 +4,7 @@ import "./Login.css";
 import Signup from "./../Signup/Signup";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../lib/firebase";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
     const [showSignUp, setShowSignUp] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -18,7 +19,7 @@ const Login = () => {
         state: false,
         msg: "",
     });
-
+    const navigate = useNavigate();
     const toggleSignUp = () => {
         setLoading(true);
         setTimeout(() => {
@@ -42,6 +43,7 @@ const Login = () => {
                     state: false,
                     msg: "",
                 });
+                navigate("/");
             })
             .catch((err) => {
                 setLoading(false);

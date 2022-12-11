@@ -1,0 +1,80 @@
+.selectVideo_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.selectVideo_closeIcon {
+    margin-right: 10px;
+    cursor: pointer;
+}
+.selectVideo_dialog {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.selectVideo_publish {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ebebeb;
+    border-radius: 50%;
+    padding: 20px;
+    width: 100px;
+}
+.selectVideo_publishIcon {
+    font-size: 4rem !important;
+    color: #949494 !important;
+}
+.MuiDialog-paperWidthSm {
+    width: 70vw;
+    height: 80vh;
+    max-width: unset !important;
+}
+
+.selectVideo_texts {
+    margin-top: 40px;
+    text-align: center;
+}
+.sv_texts-subtitle {
+    color: #737373;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.sv_texts-prpo {
+    max-width: 700px;
+    bottom: 20px;
+    text-align: center;
+    color: #737373;
+    line-height: 20px;
+}
+.custom_file-input::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+}
+.custom_file-input::before {
+    margin-left: 70px;
+    margin-top: 20px;
+    content: "Select files";
+    color: white;
+    display: inline-block;
+    background: #065fd4;
+    border-radius: 3px;
+    padding: 10px;
+    outline: none;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: "Roboto";
+    text-transform: uppercase;
+}
+.custom_file-input:active {
+    outline: 0;
+}
+.add-thumbnail::before {
+    content: "Select thumbnail";
+    margin: 0;
+}

@@ -7,19 +7,27 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PreviewChannel from "./components/PreviewChannel/PreviewChannel";
 import Login from "./components/Login/Login";
 import { useAppContext } from "./context/AppContext";
+import SelectVideo from "./components/UploadVideo/SelectVideo";
 
 const App = () => {
-    const { appState } = useAppContext();
+    const { appState, showUploadVideo, videos } = useAppContext();
     console.log(appState);
 
     return (
         <>
-            {/* <div className="home"> */}
+            <div className="home">
             <Header />
 
             <Router>
                 <Routes>
-                    <Route path="/watch" element={<Watch />} />
+                    {videos.map((item) => (
+                        <Route
+                            path={`/watch/${item.id}`}
+                            element={<Watch video={item} />}
+                            key={item.id}
+                        />
+                    ))}
+
                     <Route
                         path="/PreviewChannel"
                         element={
@@ -37,6 +45,7 @@ const App = () => {
                             <div className="app">
                                 <Sidebar />
                                 <Main />
+                                {showUploadVideo && <SelectVideo />}
                             </div>
                         }
                     />
@@ -44,7 +53,7 @@ const App = () => {
                     {/* {appState === "login" && <Login />} */}
                 </Routes>
             </Router>
-            {/* </div> */}
+            </div>
         </>
     );
 };
