@@ -105,6 +105,13 @@ const Watch = ({ video }) => {
                                 className="watch_subBtn"
                                 color="primary"
                                 variant="contained"
+                                // disabled={currentUser.email === video.email}
+                                style={{
+                                    backgroundColor:
+                                        currentUser.email === video.email
+                                            ? "#c6c6c6 !important"
+                                            : "#cc00000 !important",
+                                }}
                             >
                                 SUBSCRIBE
                             </Button>

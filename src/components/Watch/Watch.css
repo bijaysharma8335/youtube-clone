@@ -133,6 +133,9 @@
 .watch_subBtn {
     background-color: #cc0000 !important;
 }
+.watch_subBtn-disabled {
+    background-color: #c6c6c6 !important;
+}
 .watch_showMore {
     color: #aaaaaa;
     margin-top: 10px;

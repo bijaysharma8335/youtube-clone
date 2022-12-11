@@ -11,48 +11,47 @@ import SelectVideo from "./components/UploadVideo/SelectVideo";
 
 const App = () => {
     const { appState, showUploadVideo, videos } = useAppContext();
-    console.log(appState);
 
     return (
         <>
             <div className="home">
-            <Header />
+                <Header />
 
-            <Router>
-                <Routes>
-                    {videos.map((item) => (
+                <Router>
+                    <Routes>
+                        {videos.map((item) => (
+                            <Route
+                                path={`/watch/${item.id}`}
+                                element={<Watch video={item} />}
+                                key={item.id}
+                            />
+                        ))}
+
                         <Route
-                            path={`/watch/${item.id}`}
-                            element={<Watch video={item} />}
-                            key={item.id}
+                            path="/PreviewChannel"
+                            element={
+                                <div className="app">
+                                    <Sidebar />
+                                    <PreviewChannel />
+                                </div>
+                            }
                         />
-                    ))}
 
-                    <Route
-                        path="/PreviewChannel"
-                        element={
-                            <div className="app">
-                                <Sidebar />
-                                <PreviewChannel />
-                            </div>
-                        }
-                    />
-
-                    <Route
-                        exact
-                        path="/"
-                        element={
-                            <div className="app">
-                                <Sidebar />
-                                <Main />
-                                {showUploadVideo && <SelectVideo />}
-                            </div>
-                        }
-                    />
-                    <Route path="/login" element={<Login />} />
-                    {/* {appState === "login" && <Login />} */}
-                </Routes>
-            </Router>
+                        <Route
+                            exact
+                            path="/"
+                            element={
+                                <div className="app">
+                                    <Sidebar />
+                                    <Main />
+                                    {showUploadVideo && <SelectVideo />}
+                                </div>
+                            }
+                        />
+                        {/* <Route path="/login" element={<Login />} /> */}
+                        {appState === "login" && <Login />}
+                    </Routes>
+                </Router>
             </div>
         </>
     );
