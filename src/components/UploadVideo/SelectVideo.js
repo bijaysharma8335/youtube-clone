@@ -21,7 +21,6 @@ const SelectVideo = () => {
     const handleVideoChange = (e) => {
         if (e.target.files[0]) setVideo(e.target.files[0]);
     };
-  
 
     return (
         <div>
@@ -38,7 +37,6 @@ const SelectVideo = () => {
                     />
                 ) : (
                     <>
-                        {" "}
                         <div className="selectVideo_header">
                             <DialogTitle>Upload Video</DialogTitle>
                             <Close
@@ -62,7 +60,6 @@ const SelectVideo = () => {
                             </div>
                             <input
                                 type="file"
-                                value={video}
                                 onChange={handleVideoChange}
                                 className="custom_file-input"
                             />

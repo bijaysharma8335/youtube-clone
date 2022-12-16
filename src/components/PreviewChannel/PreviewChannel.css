@@ -1,6 +1,4 @@
-.channel {
-    /* overflow-y: scroll; */
-}
+
 .channel_art {
     width: 100%;
     margin-top: -12px;
@@ -28,7 +26,7 @@
     height: 100%;
     background-color: #0f0f0f;
     overflow-y: auto;
-}
+} 
 .channel_detailsWrap {
     display: flex;
     justify-content: space-between;

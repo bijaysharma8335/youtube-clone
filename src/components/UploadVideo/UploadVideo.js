@@ -20,11 +20,11 @@ const UploadVideo = ({ video, setVideo, handleClose }) => {
     const [thumbnailProgress, setThumbnailProgress] = useState(0);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [thumbnail, setThumbnail] = useState(null);
+    const [thumbnail, setThumbnail] = useState("");
     const [thumbnailUrl, setThumbnailUrl] = useState(null);
 
     const [videoUrl, setVideoUrl] = useState(null);
-    const [id, setId] = useState(uuidv4);
+    const [id, setId] = useState(uuidv4());
 
     const [thumbnailUploaded, setThumbnailUploaded] = useState(false);
     const [videoUploaded, setVideoUploaded] = useState(false);
@@ -33,7 +33,9 @@ const UploadVideo = ({ video, setVideo, handleClose }) => {
     const createId = () => setId(uuidv4());
 
     const handleChange = (e) => {
-        if (e.target.files[0]) setThumbnail(e.target.files[0]);
+        if (e.target.files[0]) {
+            setThumbnail(e.target.files[0]);
+        }
     };
     const handleThumbnailUpload = () => {
         const thumbnailRef = ref(
@@ -101,8 +103,8 @@ const UploadVideo = ({ video, setVideo, handleClose }) => {
 
     useEffect(() => {
         if (thumbnailUploaded && videoUploaded) {
-            addDoc(collection(db, "videos"), {
-                timestamp: Timestamp,
+            addDoc(collection(db, "/videos"), {
+                // timestamp: Timestamp,
                 id: id,
                 videoURL: videoUrl,
                 thumbnailURL: thumbnailUrl,
@@ -155,6 +157,7 @@ const UploadVideo = ({ video, setVideo, handleClose }) => {
                 />
             </div>
             <Divider />
+
             <DialogContent>
                 <DialogTitle>Details</DialogTitle>
                 <TextField
@@ -164,6 +167,7 @@ const UploadVideo = ({ video, setVideo, handleClose }) => {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
+
                 <TextField
                     label="Description"
                     variant="outlined"
@@ -179,10 +183,9 @@ const UploadVideo = ({ video, setVideo, handleClose }) => {
                     type="file"
                     className="custom_file-input  add-thumbnail"
                     placeholder="Thumbnail"
-                    value={thumbnail}
                     onChange={handleChange}
                 />
-                <progress value={progress} max={100} />
+                <progress value={progress} max="100" />
                 <DialogActions>
                     <Button
                         variant="outlined"
@@ -193,6 +196,7 @@ const UploadVideo = ({ video, setVideo, handleClose }) => {
                     </Button>
                 </DialogActions>
             </DialogContent>
+            
         </div>
     );
 };

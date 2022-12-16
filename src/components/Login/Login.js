@@ -78,6 +78,7 @@ const Login = () => {
                         />
                         <p className="login_title">Sign in</p>
                         <p className="login_subtitle">Continue to Gmail</p>
+
                         <form className="login_form">
                             <TextField
                                 id="outlined-basic"
@@ -90,6 +91,7 @@ const Login = () => {
                                 error={emailError.state}
                                 helperText={emailError.msg}
                             />
+
                             <TextField
                                 id="outlined-basic"
                                 label="Password"
@@ -101,11 +103,13 @@ const Login = () => {
                                 error={passwordError.state}
                                 helperText={passwordError.msg}
                             />
+
                             <div className="login_infoText">
                                 Not your computer? Use guest mode to sign in
                                 privately?
                                 <a href="/learnmore">Learn More</a>
                             </div>
+
                             <div className="login_buttons">
                                 <Button
                                     className="login_button"
@@ -114,6 +118,7 @@ const Login = () => {
                                 >
                                     Create Account
                                 </Button>
+                                
                                 <Button
                                     className="login_button"
                                     color="primary"
@@ -123,6 +128,7 @@ const Login = () => {
                                     Sign in
                                 </Button>
                             </div>
+
                         </form>
                     </div>
                 </div>

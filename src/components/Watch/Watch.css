@@ -78,16 +78,13 @@
     width: 100%;
     transform: translateX(-5px);
 }
+
 .watch_videoInfoRight {
     display: flex;
     align-items: baseline;
 }
-.watch_videoRightWrap {
-    display: flex;
-    align-items: baseline;
-}
 .share-icon {
-    transform: rotate(180deg);
+    transform: rotate(180deg) rotateX(180deg);
     font-size: 30px !important;
 }
 .watch_likeWrap {
@@ -133,9 +130,11 @@
 .watch_subBtn {
     background-color: #cc0000 !important;
 }
+
 .watch_subBtn-disabled {
     background-color: #c6c6c6 !important;
 }
+
 .watch_showMore {
     color: #aaaaaa;
     margin-top: 10px;

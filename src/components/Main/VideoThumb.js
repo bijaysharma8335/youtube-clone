@@ -5,8 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 const VideoThumb = ({ video }) => {
     const navigate = useNavigate();
+
     const handleThumbClick = () => {
-        navigate(`/watch/${video.id}`);
+        // navigate(`/watch/${video.id}`);
+        navigate('/watch')
     };
 
     const handleAvatarClick = () => {
@@ -30,21 +32,25 @@ const VideoThumb = ({ video }) => {
             />
             <div className="videothumb_details">
                 <Avatar onClick={handleAvatarClick} />
+                
                 <div className="videothumb_channel">
                     <h1 className="videothumb_title">
                         Create a youtube clone
                         
                         {/* {video.title} */}
                     </h1>
+
                     <div className="thumb_texts">
                         <p className="videothumb_text">
                             Bijay Sharma
                             {/* {video.channelName} */}
                         </p>
+
                         <p className="videothumb_text">
                             123 views *
                             {/* • {uploadedTime} */}
                         </p>
+
                     </div>
                 </div>
             </div>

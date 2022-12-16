@@ -118,7 +118,9 @@ const Signup = ({ setShowSignUp }) => {
                         <h1 className="signup_heading">
                             Create Your Google Account
                         </h1>
+
                         <p className="signup_subheading">Continue to Gmail</p>
+
                         <div className="signup_inputs">
                             <div className="signup_nameInputs">
                                 <TextField
@@ -136,6 +138,7 @@ const Signup = ({ setShowSignUp }) => {
                                         })
                                     }
                                 />
+
                                 <TextField
                                     id="outlined-basic"
                                     label="Last Name"
@@ -152,6 +155,7 @@ const Signup = ({ setShowSignUp }) => {
                                     }
                                 />
                             </div>
+
                             <TextField
                                 id="outlined-basic"
                                 label="Email"
@@ -193,6 +197,7 @@ const Signup = ({ setShowSignUp }) => {
                                         }
                                         error={passwordError.state}
                                     />
+
                                     <TextField
                                         id="outlined-basic"
                                         label="Confirm Password"
@@ -210,6 +215,7 @@ const Signup = ({ setShowSignUp }) => {
                                         }
                                     />
                                 </div>
+
                                 <p
                                     className={`signup_helpertext${
                                         passwordError.state && "signin_error"
@@ -219,6 +225,7 @@ const Signup = ({ setShowSignUp }) => {
                                         ? passwordError.msg
                                         : " Use 8 or more characters with a mix of letters ,numbers & symbols"}
                                 </p>
+
                                 <FormControlLabel
                                     control={
                                         <Checkbox
@@ -230,6 +237,8 @@ const Signup = ({ setShowSignUp }) => {
                                     label="show Password"
                                 />
                             </div>
+
+
                             <div className="signup_buttons">
                                 <Button
                                     className="signup_button"
@@ -239,6 +248,7 @@ const Signup = ({ setShowSignUp }) => {
                                 >
                                     Sign in instead
                                 </Button>
+
                                 <Button
                                     className="signup_button"
                                     variant="contained"
@@ -248,6 +258,7 @@ const Signup = ({ setShowSignUp }) => {
                                 >
                                     Create
                                 </Button>
+
                             </div>
                         </div>
                     </div>
@@ -257,9 +268,11 @@ const Signup = ({ setShowSignUp }) => {
                             src="https://ssl.gstatic.com/accounts/signup/glif/account.svg"
                             alt="account"
                         />
+
                         <figcaption className="signup_figcaption">
                             One account .All of google working for you
                         </figcaption>
+                        
                     </figure>
                 </div>
             </div>

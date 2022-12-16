@@ -39,6 +39,7 @@ const Header = () => {
                 <Menu className="header_menuicon" />
                 <img className="header_logo" src={logo} alt="youtube" />
             </div>
+
             <form className="header_center">
                 <input
                     type="text"
@@ -49,6 +50,7 @@ const Header = () => {
                     <Search className="header_searchIcon" />
                 </Button>
             </form>
+
             <div className="header_right">
                 <VideoCall onClick={() => setShowUploadVideo(true)} />
                 <Apps />
@@ -78,6 +80,7 @@ const Header = () => {
                             >
                                 <Avatar className={classes.large} />
                             </Badge>
+
                             <div className="home_text">
                                 <div className="home_displayName">
                                     {currentUser?.displayName}
@@ -86,22 +89,26 @@ const Header = () => {
                                     {currentUser?.email}
                                 </div>
                             </div>
+
                             <div className="home_btn">
                                 Manage Your Google Account
                             </div>
                         </div>
+
                         <div className="home_popover_btn">
                             <div className="home_addBtn">
                                 <PersonAddOutlined className="home_addIcon" />
                                 <p>Add Another Account</p>
                             </div>
+
                             <Button
+                                onClick={() => signOut(auth)}
                                 variant="outlined"
                                 className="home_signOut"
-                                onClick={() => signOut(auth)}
                             >
                                 SignOut
                             </Button>
+
                             <div className="home_popover_footer">
                                 <p>Privacy Policy</p>
                                 <span>*</span>

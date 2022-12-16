@@ -21,9 +21,10 @@ const App = () => {
                     <Routes>
                         {videos.map((item) => (
                             <Route
-                                path={`/watch/${item.id}`}
+                                // path={`/watch/${item.id}`}
+                                path="/watch"
                                 element={<Watch video={item} />}
-                                key={item.id}
+                                // key={item.id}
                             />
                         ))}
 
@@ -48,8 +49,8 @@ const App = () => {
                                 </div>
                             }
                         />
-                        {/* <Route path="/login" element={<Login />} /> */}
-                        {appState === "login" && <Login />}
+                        <Route path="/login" element={<Login />} />
+                        {/* {appState === "login" && <Login />} */}
                     </Routes>
                 </Router>
             </div>

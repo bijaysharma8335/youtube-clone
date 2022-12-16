@@ -23,7 +23,6 @@ export const AppContextProvider = ({ children }) => {
             if (user) {
                 setaAppState("home");
                 setCurrentUser(user);
-               
             } else {
                 setCurrentUser(null);
                 setaAppState("login");
@@ -31,12 +30,12 @@ export const AppContextProvider = ({ children }) => {
         });
     }, []);
 
-    
     // useEffect(
     //     () => {
     //         const querySnapshot = getDocs(collection(db, "videos"));
     //         querySnapshot.forEach((doc) => {
-    //             setVideos(`${doc.id} => ${doc.data()}`);
+    //             // setVideos(`${doc.id} => ${doc.data()}`);
+    //             console.log(doc);
     //         });
     //     },
 

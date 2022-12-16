@@ -12,11 +12,13 @@ import {
 } from "@material-ui/icons";
 import "./Sidebar.css";
 import { useNavigate } from "react-router-dom";
+
 const Sidebar = () => {
     const navigate = useNavigate();
     const handleClick = () => {
         navigate("/");
     };
+
     return (
         <div className="sidebar">
             <div className="sidebar_buttons">
@@ -27,14 +29,17 @@ const Sidebar = () => {
                     <Home className="sidebar_icon" />
                     <p>Home</p>
                 </div>
+
                 <div className="sidebar_btn ">
                     <Whatshot className="sidebar_icon" />
                     <p>Trending</p>
                 </div>
+
                 <div className="sidebar_btn ">
                     <Subscriptions className="sidebar_icon" />
                     <p>Subscriptions</p>
                 </div>
+
             </div>
 
             <div className="sidebar_buttons bottom">
@@ -42,26 +47,32 @@ const Sidebar = () => {
                     <VideoLibrary className="sidebar_icon" />
                     <p>Libraries</p>
                 </div>
+
                 <div className="sidebar_btn ">
                     <Restore className="sidebar_icon" />
                     <p>History</p>
                 </div>
+
                 <div className="sidebar_btn ">
                     <OndemandVideo className="sidebar_icon" />
                     <p>Your Videos</p>
                 </div>
+
                 <div className="sidebar_btn ">
                     <WatchLater className="sidebar_icon" />
                     <p>WatchLater</p>
                 </div>
+
                 <div className="sidebar_btn ">
                     <ThumbUp className="sidebar_icon" />
                     <p>Like Videos</p>
                 </div>
+
                 <div className="sidebar_btn ">
                     <ExpandMore className="sidebar_icon" />
                     <p>Show More</p>
                 </div>
+                
             </div>
         </div>
     );
