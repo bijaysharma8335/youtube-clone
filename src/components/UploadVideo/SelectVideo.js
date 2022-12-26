@@ -1,3 +1,4 @@
+import React, { useState, forwardRef } from "react";
 import {
     Dialog,
     DialogContent,
@@ -6,18 +7,21 @@ import {
     Slide,
 } from "@material-ui/core";
 import { Close, Publish } from "@material-ui/icons";
-import React, { useState } from "react";
-import { forwardRef } from "react";
+
 import { useAppContext } from "../../context/AppContext";
 import "./styles.css";
 import UploadVideo from "./UploadVideo";
+
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 const SelectVideo = () => {
+    
     const { showUploadVideo, setShowUploadVideo } = useAppContext();
     const [video, setVideo] = useState(null);
+
     const handleClose = () => setShowUploadVideo(false);
+
     const handleVideoChange = (e) => {
         if (e.target.files[0]) setVideo(e.target.files[0]);
     };

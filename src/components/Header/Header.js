@@ -9,11 +9,12 @@ import {
     Search,
     VideoCall,
 } from "@material-ui/icons";
+import { signOut } from "firebase/auth";
 import logo from "../../Assets/logo.png";
 import "./Header.css";
 import { useAppContext } from "./../../context/AppContext";
 import { auth } from "../../lib/firebase";
-import { signOut } from "firebase/auth";
+
 const useStyles = makeStyles((theme) => ({
     large: {
         width: theme.spacing(7),

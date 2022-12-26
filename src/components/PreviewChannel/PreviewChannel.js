@@ -1,8 +1,9 @@
 import React from "react";
+import { Avatar, Button } from "@material-ui/core";
 import "./PreviewChannel.css";
 import "../Watch/Watch.css";
 import img from "../../Assets/channelArt.jpg";
-import { Avatar, Button } from "@material-ui/core";
+
 import VideoSmall from "../VideoSmall/VideoSmall";
 const PreviewChannel = () => {
     return (
@@ -12,7 +13,7 @@ const PreviewChannel = () => {
                 <div className="channel_detailsWrap">
                     <div className="channel_avatarWrap">
                         <Avatar className="channel_avatar" />
-                        
+
                         <div className="videothumb_channel">
                             <h1 className="videothumb_title">Amazon Prime</h1>
 
@@ -28,7 +29,6 @@ const PreviewChannel = () => {
                         >
                             SUBSCRIBE
                         </Button>
-
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@ const PreviewChannel = () => {
                     <div className="channel_link">
                         <p>COMMUNITY</p>
                     </div>
-                    
+
                     <div className="channel_link">
                         <p>PLAYLIST</p>
                     </div>
@@ -57,7 +57,6 @@ const PreviewChannel = () => {
                     <div className="channel_link">
                         <p>ABOUT</p>
                     </div>
-
                 </div>
             </div>
 

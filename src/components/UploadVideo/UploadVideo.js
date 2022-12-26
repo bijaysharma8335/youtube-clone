@@ -9,12 +9,12 @@ import {
 } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 import { v4 as uuidv4 } from "uuid";
-import "./styles.css";
-import { useAppContext } from "../../context/AppContext";
-import { db, storage } from "../../lib/firebase";
+
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
-
+import { db, storage } from "../../lib/firebase";
+import { useAppContext } from "../../context/AppContext";
+import "./styles.css";
 const UploadVideo = ({ video, setVideo, handleClose }) => {
     const [progress, setProgress] = useState(0);
     const [thumbnailProgress, setThumbnailProgress] = useState(0);
@@ -196,7 +196,6 @@ const UploadVideo = ({ video, setVideo, handleClose }) => {
                     </Button>
                 </DialogActions>
             </DialogContent>
-            
         </div>
     );
 };

@@ -1,13 +1,15 @@
 import React from "react";
-import "./VideoSmall.css";
 import { useNavigate } from "react-router-dom";
+import "./VideoSmall.css";
+
 const VideoSmall = ({ channelView = false }) => {
+    
     const navigate = useNavigate();
+
     const handleClickRedirect = () => {
         navigate("/watch");
     };
     return (
-
         <div
             onClick={handleClickRedirect}
             className={`videoSmall${channelView && "videoSmall_channelView"}`}
@@ -26,7 +28,7 @@ const VideoSmall = ({ channelView = false }) => {
                 <p className="videoSmall_title">
                     Amazon prime video's new web series
                 </p>
-                
+
                 <div className="videoSmall_texts videothumb_texts">
                     {!channelView && (
                         <p className="videothumb_text">Amazon Prime Video</p>
@@ -34,7 +36,6 @@ const VideoSmall = ({ channelView = false }) => {
 
                     <p className="videothumb_text">100k views * 3 days ago</p>
                 </div>
-
             </div>
         </div>
     );

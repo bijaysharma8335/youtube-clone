@@ -5,8 +5,9 @@ import {
     FormControlLabel,
     TextField,
 } from "@material-ui/core";
-import { auth } from "../../lib/firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../../lib/firebase";
+
 import "./Signup.css";
 
 const initialFormData = {
@@ -38,8 +39,6 @@ const Signup = ({ setShowSignUp }) => {
             setShowSignUp(false);
         }, 1500);
     };
-
-
 
     const createAccount = async (e) => {
         e.preventDefault();
@@ -238,7 +237,6 @@ const Signup = ({ setShowSignUp }) => {
                                 />
                             </div>
 
-
                             <div className="signup_buttons">
                                 <Button
                                     className="signup_button"
@@ -258,7 +256,6 @@ const Signup = ({ setShowSignUp }) => {
                                 >
                                     Create
                                 </Button>
-
                             </div>
                         </div>
                     </div>
@@ -272,7 +269,6 @@ const Signup = ({ setShowSignUp }) => {
                         <figcaption className="signup_figcaption">
                             One account .All of google working for you
                         </figcaption>
-                        
                     </figure>
                 </div>
             </div>

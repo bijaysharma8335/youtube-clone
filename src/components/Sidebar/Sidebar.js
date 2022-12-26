@@ -10,8 +10,8 @@ import {
     WatchLater,
     Whatshot,
 } from "@material-ui/icons";
-import "./Sidebar.css";
 import { useNavigate } from "react-router-dom";
+import "./Sidebar.css";
 
 const Sidebar = () => {
     const navigate = useNavigate();
@@ -39,7 +39,6 @@ const Sidebar = () => {
                     <Subscriptions className="sidebar_icon" />
                     <p>Subscriptions</p>
                 </div>
-
             </div>
 
             <div className="sidebar_buttons bottom">
@@ -72,7 +71,6 @@ const Sidebar = () => {
                     <ExpandMore className="sidebar_icon" />
                     <p>Show More</p>
                 </div>
-                
             </div>
         </div>
     );

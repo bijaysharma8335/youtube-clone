@@ -1,10 +1,12 @@
-import { Button, TextField } from "@material-ui/core";
 import React, { useState } from "react";
+import { Button, TextField } from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import "./Login.css";
 import Signup from "./../Signup/Signup";
-import { signInWithEmailAndPassword } from "firebase/auth";
+
 import { auth } from "../../lib/firebase";
-import { useNavigate } from "react-router-dom";
+
 const Login = () => {
     const [showSignUp, setShowSignUp] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -118,7 +120,7 @@ const Login = () => {
                                 >
                                     Create Account
                                 </Button>
-                                
+
                                 <Button
                                     className="login_button"
                                     color="primary"
@@ -128,7 +130,6 @@ const Login = () => {
                                     Sign in
                                 </Button>
                             </div>
-
                         </form>
                     </div>
                 </div>
