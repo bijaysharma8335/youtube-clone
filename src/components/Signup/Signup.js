@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
     Button,
     Checkbox,
@@ -6,8 +7,8 @@ import {
     TextField,
 } from "@material-ui/core";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../../lib/firebase";
-
+import { auth, db } from "../../lib/firebase";
+import { addDoc, collection } from "firebase/firestore";
 import "./Signup.css";
 
 const initialFormData = {
@@ -73,6 +74,13 @@ const Signup = ({ setShowSignUp }) => {
                 setLoading(false);
                 setEmailError({ state: false, msg: "" });
                 setPasswordError({ state: false, msg: "" });
+                addDoc(
+                    collection(db, "users", formData.email, {
+                        email: formData.email,
+                        firstName: formData.firstName,
+                        lastName: formData.lastName,
+                    })
+                );
             })
             .catch((error) => {
                 if (error.code === "auth/email-already-in-use") {

@@ -35,7 +35,7 @@ export const AppContextProvider = ({ children }) => {
     //     () => {
     //         const querySnapshot = getDocs(collection(db, "videos"));
     //         querySnapshot.forEach((doc) => {
-    //             // setVideos(`${doc.id} => ${doc.data()}`);
+    //             setVideos(`${doc.id} => ${doc.data()}`);
     //             console.log(doc);
     //         });
     //     },

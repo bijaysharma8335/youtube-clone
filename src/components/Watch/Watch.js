@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Avatar, Button } from "@material-ui/core";
 import {
     MoreHoriz,
@@ -10,10 +10,14 @@ import {
 import moment from "moment";
 
 import { useNavigate } from "react-router-dom";
+import { addDoc, collection } from "firebase/firestore";
 import videoURL from "../../Assets/videos/video.mp4";
 import { useAppContext } from "../../context/AppContext";
 import VideoSmall from "../VideoSmall/VideoSmall";
 import "./Watch.css";
+
+import { db } from "../../lib/firebase";
+
 const Watch = ({ video }) => {
     const [showDesc, setShowDesc] = useState(false);
 
@@ -29,7 +33,39 @@ const Watch = ({ video }) => {
     const handleAvatarRedirect = () => {
         navigate("/PreviewChannel");
     };
+    const subscribe = () => {
+        addDoc(
+            collection(db, "users", video.email, {
+                update: {
+                    subscribers: fireStore.FieldValue.arrayUnion(
+                        currentUser.email
+                    ),
+                },
+            })
+        );
 
+        addDoc(
+            collection(db, "users", video.email, {
+                update: {
+                    subscriptions: fireStore.FieldValue.arrayUnion(
+                        currentUser.email
+                    ),
+                },
+            })
+        );
+    };
+
+    // useEffect(() => {
+    //    addDoc(
+    //         collection(db, "users", video.email, {
+    //             update: {
+    //                 subscriptions: fireStore.FieldValue.arrayUnion(
+    //                     currentUser.email
+    //                 ),
+    //             }, 
+    //         })
+    //     );
+    // }, []);
     return (
         <div className="watch">
             <div className="watch_wrap">
@@ -117,16 +153,21 @@ const Watch = ({ video }) => {
                             </div>
 
                             <Button
-                                className="watch_subBtn"
+                                className={`${
+                                    currentUser.email === video.email
+                                        ? "watch_subBtn-disabled"
+                                        : "watch_subBtn"
+                                }`}
                                 color="primary"
                                 variant="contained"
-                                // disabled={currentUser.email === video.email}
+                                disabled={currentUser.email === video.email}
                                 style={{
                                     backgroundColor:
                                         currentUser.email === video.email
                                             ? "#c6c6c6 !important"
-                                            : "#cc00000 !important",
+                                            : "#cc0000 !important",
                                 }}
+                                onClick={subscribe}
                             >
                                 SUBSCRIBE
                             </Button>
